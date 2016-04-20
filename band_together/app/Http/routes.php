@@ -19,40 +19,9 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/instruments', function () {
+Route::get('instruments', 'InstrumentsController@index');
 
+Route::get('players', 'PlayersController@index');
 
-    return view('instruments');
-});
+Route::get('players/{player}', 'PlayersController@show');
 
-
-
-/**
- * Add New Instrument
- */
-Route::post('/instrument', function (Request $request) {
-    $validator = Validator::make($request->all(), [
-        'name' => 'required|max:255',
-    ]);
-
-    if ($validator->fails()) {
-        return redirect('/')
-            ->withInput()
-            ->withErrors($validator);
-    }
-
-    $instrument = new \App\Instrument();
-    $instrument->name = $request->name;
-    $instrument->save();
-
-    return redirect('/');
-});
-
-/**
- * Delete Task
- */
-Route::delete('/instrument/{instrument}', function (\App\Instrument $task) {
-    $task->delete();
-
-    return redirect('/');
-});
