@@ -26,4 +26,19 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function player(){
+        return $this->belongsTo(Player::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function show($id){
+
+
+        $player = User::find($id);
+        return $player->stage_name;
+    }
 }

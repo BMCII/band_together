@@ -19,9 +19,24 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('instruments', 'InstrumentsController@index');
-
 Route::get('players', 'PlayersController@index');
 
 Route::get('players/{player}', 'PlayersController@show');
 
+Route::post('players/{player}', 'NotesController@store');
+
+Route::post('players/{player}', 'PlayersController@create');
+
+Route::delete('/notes/{note}', function (App\Note $note) {
+    $note->delete();
+
+    return back() ;
+});
+
+Route::post('players.profile_form/{player}', 'PlayerController@store');
+
+//Route::delete('/players/{player}', function (App\Player $player) {
+//    $player->delete();
+//
+//    return back() ;
+//}

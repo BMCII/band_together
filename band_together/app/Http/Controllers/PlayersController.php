@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Player;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 
 class PlayersController extends Controller
@@ -17,11 +18,13 @@ class PlayersController extends Controller
         return view('players.index', compact('players'));
     }
 
-    public function show($id){
+    public function show(Player $player){
 
 
-        $player = Player::find($id);
         return view('players.show', compact('player'));
     }
+
+
+
 
 }
