@@ -25,15 +25,13 @@ Route::get('players/{player}', 'PlayersController@show');
 
 Route::post('players/{player}', 'NotesController@store');
 
-Route::post('players/{player}', 'PlayersController@create');
-
 Route::delete('/notes/{note}', function (App\Note $note) {
     $note->delete();
 
     return back() ;
 });
-
-Route::post('players.profile_form/{player}', 'PlayerController@store');
+Route::post('players/{player}', 'PlayerController@store');
+//Route::post('players/{user}/players', 'PlayerController@store');
 
 //Route::delete('/players/{player}', function (App\Player $player) {
 //    $player->delete();

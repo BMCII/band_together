@@ -24,7 +24,26 @@ class PlayersController extends Controller
         return view('players.show', compact('player'));
     }
 
+    public function store(Request $request){
 
+return request()->all();
+
+//        $player = new Player;
+//
+//        $player->stage_name = $request->stage_name;
+//
+//        $player->age = $request->age;
+//
+//        $player->instrument = $request->instrument;
+//
+//        $player->style = $request->style;
+//
+//        $player->player()->save($player);
+//
+//
+//        return view('players.index', compact('players'));
+
+    }
 
 
 }

@@ -6,17 +6,19 @@ use Illuminate\Http\Request;
 
 use App\Player;
 
+use App\User;
+
 use App\Http\Requests;
 
 class PlayerController extends Controller
 {
 
-    public function profile_form(){
-        return view('players.profile_form');
-    }
 
-//    public function store(Request $request, Player $player){
-//
+
+    public function store(Request $request, User $user){
+
+        return request()->all();
+
 //        $player = new Player;
 //
 //        $player->stage_name = $request->stage_name;
@@ -27,8 +29,10 @@ class PlayerController extends Controller
 //
 //        $player->style = $request->style;
 //
-//        $player->players()->save($player);
+//        $user->player()->save($player);
 //
-//        return back();
-//    }
+//
+//            return view('players.index');
+
+    }
 }
