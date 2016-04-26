@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Player;
+
+use App\User;
+
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
 
@@ -24,21 +27,13 @@ class PlayersController extends Controller
         return view('players.show', compact('player'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request, User $user){
 
-return request()->all();
+//return request()->all();
 
-//        $player = new Player;
-//
-//        $player->stage_name = $request->stage_name;
-//
-//        $player->age = $request->age;
-//
-//        $player->instrument = $request->instrument;
-//
-//        $player->style = $request->style;
-//
-//        $player->player()->save($player);
+        $user->addPlayer(
+            new Player($request->all())
+            );
 //
 //
 //        return view('players.index', compact('players'));

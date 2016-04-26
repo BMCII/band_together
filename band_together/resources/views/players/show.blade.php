@@ -43,7 +43,7 @@
                     </ul>
 
                     <tr>
-                        <!-- Task Name -->
+                        <!-- Note Name -->
                         <td class="table-text">
                             <div>{{ $note->name }} </div>
                         </td>

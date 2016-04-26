@@ -10,14 +10,15 @@ class Player extends Model
 
 {
 
-    protected $fillable = ['stage_name'];
+    protected $fillable = ['stage_name', 'age', 'instrument', 'style',];
+
 
     public function notes(){
         return $this->hasMany(Note::class);
     }
 
 
-    public function player(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
 

@@ -30,7 +30,12 @@ Route::delete('/notes/{note}', function (App\Note $note) {
 
     return back() ;
 });
-Route::post('players/{player}', 'PlayerController@store');
+Route::get('players/{player}/edit', 'PlayerController@edit');
+
+
+
+
+
 //Route::post('players/{user}/players', 'PlayerController@store');
 
 //Route::delete('/players/{player}', function (App\Player $player) {
