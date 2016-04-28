@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
+use Auth;
+
+use App\Player;
+
 class HomeController extends Controller
 {
     /**
@@ -35,10 +39,11 @@ class HomeController extends Controller
         return $this->belongsTo(User::class);
     }
 
-    public function show($id){
+    public function view(){
 
-
-        $player = User::find($id);
-        return $player->stage_name;
+        $players = Player::all()->where('user_id', Auth::User()->id);
+        return view('home', compact("players"));
     }
+
+
 }

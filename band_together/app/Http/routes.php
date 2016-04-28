@@ -17,22 +17,36 @@ Route::get('/', function () {
 
 Route::auth();
 
+
+//== Link User Home ==//
 Route::get('/home', 'HomeController@index');
 
+
+//== List Players ==//
 Route::get('players', 'PlayersController@index');
 
+//== Show Player ==//
 Route::get('players/{player}', 'PlayersController@show');
 
+//== Add Note ==//
 Route::post('players/{player}', 'NotesController@store');
 
+//== Delete Note ==//
 Route::delete('/notes/{note}', function (App\Note $note) {
     $note->delete();
-
     return back() ;
 });
-Route::get('players/{player}/edit', 'PlayerController@edit');
+
+//== Create Player ==//
+Route::post('{user}/player', 'PlayersController@store');
+
+Route::get('{user}/players', 'PlayersController@view');
+
+route::get('/home', 'HomeController@view');
 
 
+Route::get('/redirect', 'SocialAuthController@redirect');
+Route::get('/callback', 'SocialAuthController@callback');
 
 
 

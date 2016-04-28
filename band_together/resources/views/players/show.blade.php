@@ -27,7 +27,7 @@
 
                             <div class="row">
                                 <div class="col-md-offset-10">
-                            <td>
+
                                 <form action="{{ url('notes/'.$note->id) }}" method="POST">
                                     {!! csrf_field() !!}
                                     {!! method_field('DELETE') !!}
@@ -36,14 +36,14 @@
                                         <i class="fa fa-trash"></i> Delete
                                     </button>
                                 </form>
-                            </td>
+
                                     </div>
-                                </div>
+                            </div>
                         </li>
                     </ul>
 
                     <tr>
-                        <!-- Note Name -->
+                        <!-- Task Name -->
                         <td class="table-text">
                             <div>{{ $note->name }} </div>
                         </td>

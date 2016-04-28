@@ -10,6 +10,8 @@ use App\Player;
 
 use App\User;
 
+use Auth;
+
 use Symfony\Component\HttpKernel\Profiler\Profile;
 
 
@@ -29,15 +31,29 @@ class PlayersController extends Controller
 
     public function store(Request $request, User $user){
 
-//return request()->all();
+        $player = new Player;
+        $player->stage_name = $request->stage_name;
+        $player->age = $request->age;
+        $player->instrument = $request->instrument;
+        $player->style = $request->style;
 
-        $user->addPlayer(
-            new Player($request->all())
-            );
-//
-//
-//        return view('players.index', compact('players'));
+        $user->player()->save($player);
 
+
+       return back();
+
+    }
+
+    public function view(){
+
+        $players = Player::all()->where('user_id', Auth::User()->id);
+        return view('players.user', compact("players"));
+    }
+
+    public function players(){
+
+        $players = Player::all()->where('user_id', Auth::User()->id);
+        return view('players.user', compact("players"));
     }
 
 
