@@ -12,7 +12,7 @@ class CreateSocialAccountsTable extends Migration
      */
     public function up()
     {
-        Schema::table('social_accounts', function (Blueprint $table) {
+        Schema::create('social_accounts', function (Blueprint $table) {
             $table->integer('user_id');
             $table->string('provider_user_id');
             $table->string('provider');
